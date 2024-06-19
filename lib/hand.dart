@@ -34,7 +34,6 @@ class Hand {
         i += 3;
       }
     }
-
     // Check for Pon combinations
     for (int i = 0; i < contents.length - 2; i++) {
       Pon p = Pon([contents[i], contents[i + 1], contents[i + 2]]);
@@ -43,7 +42,6 @@ class Hand {
         i += 2;
       }
     }
-
     // Check for Chi combinations
     for (int i = 0; i < contents.length - 2; i++) {
       Chi c = Chi([contents[i], contents[i + 1], contents[i + 2]]);
@@ -52,7 +50,13 @@ class Hand {
         i += 2;
       }
     }
-
+    // Check for Chi combinations
+    for (int i = 0; i < contents.length - 1; i++) {
+      if (contents[i]==contents[i + 1]) {
+        combinations.add(Pair([contents[i], contents[i + 1]]]));
+        i += 1;
+      }
+    }
     return combinations;
   }
 }
